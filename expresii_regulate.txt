@@ -1,0 +1,43 @@
+regex101.com
+
+regex
+^[ ]*if[ ]*\((.*)\)[ ]*(.+)$
+
+test string
+   if    (    a == b    )       instructio3; instr2; instr3;
+
+regex
+\S*
+
+test string
+asd;
+
+regex
+\(*(.*)(and|or)(.*)\)*
+
+test string
+((a and b > 10) or (c :: 0)) and (d < e) and (d<g)
+
+regex
+\(*(.*)(and|or)(.*)\)*
+
+test string
+a and b > 10) or (c :: 0)) and (d < e)
+
+regex
+\(*(.*)(and|or)(.*)\)*
+
+test string
+a and b > 10) or (c :: 0))
+
+regex
+\(*(.*)(and|or)(.*)\)*
+
+test string
+a and b > 10)
+
+regex
+\(*(.*)(and|or)(.*)\)*
+
+test string
+ b > 10)
