@@ -1,10 +1,21 @@
 #include <iostream>
 #include <iomanip>
+#ifdef __MINGW32__
+#include <windows.h>
+#endif
 #include "big_number.h"
 using namespace std;
 
 void running(void) {
-    cout << "\033[29;1mrunning\033[0m \033[35;1mBig Number ver 1.15\033[0m..." << endl;
+    #ifdef __MINGW32__
+        HANDLE  hConsole;
+        hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleTextAttribute(hConsole, 2);
+        cout << "Big Number ver 1.15" << endl;
+        SetConsoleTextAttribute(hConsole, 7);
+    #else
+        cout << "\033[29;1mrunning\033[0m \033[35;1mBig Number ver 1.15\033[0m..." << endl;
+    #endif
 }
 
 BigNumber::BigNumber() : baza(BAZA_DEFAULT), _len(MAX_CIFRE), sign(false) {
@@ -118,11 +129,21 @@ bool BigNumber::operator < (BigNumber const &obj) {
 }
 
 bool BigNumber::operator > (BigNumber const &obj) {
-    for (int i = _len - 1; i >=0; i--) {
+    for (int i = _len - 1; i >= 0; i--) {
         if (obj.cifre[i] < cifre[i]) {
             return true;
         }
     }
+    return false;
+}
+
+bool BigNumber::operator <= (BigNumber const &obj) {
+    //return !(this > obj); // it was worth the shot :)
+    return false;
+}
+
+bool BigNumber::operator >= (BigNumber const &obj) {
+    //return !(this < obj); // it was worth the shot
     return false;
 }
 

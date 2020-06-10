@@ -5,6 +5,7 @@
 #include <map>
 
 bool EvaluateCondition(map<string, BigNumber>, string);
+bool EvaluateComparison(map<string, BigNumber>, string);
 BigNumber EvaluateAritmeticExpression(string);
 
 #endif

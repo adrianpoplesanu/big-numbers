@@ -11,6 +11,11 @@ bool EvaluateCondition(map<string, BigNumber> variables, string cond) {
     return true;
 }
 
+bool EvaluateComparison(map<string, BigNumber> variables, string comp) {
+    cout << comp;
+    return true;
+}
+
 BigNumber EvaluateAritmeticExpression(string expression) {
     // TODO: add the expresion evaluator used in syntax068.cpp
     BigNumber numar;
